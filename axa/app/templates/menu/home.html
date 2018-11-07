@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h2 class="flow-text blue-text darken-2">Bienvenue {{ user.first_name }} {{ user.last_name }} </h2>
+    
+    {% for litige in litiges %}
+    <div class="row mt50">
+    <div class="card col s10 offset-s1 ">
+        <div class="card-content">
+            <table class="table striped">
+                <thead>
+                    <tr>
+                        <th>FAI</th>
+                        <th>Temps d'indisponibilité</th>
+                        <th>Cause</th>
+                        <th>Compensation</th>
+                        <th>Entreprise impactée</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <tr>
+                        <td>{{ litige.fai }}</td>
+                        <td>{{ litige.tempsdown }}</td>
+                        <td>{{ litige.cause }}</td>
+                        <td>{{ litige.compensation }}</td>
+                        <td>{{ litige.entreprises_impactés }}</td>
+                        <td>{{ litige.creation_date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    {% empty %}
+    <div class="row mt50">
+        <div class="card col s6 offset-s3 ">
+            <div class="card-content">
+                <h2 class="flow-text blue-text darken-2">Vous n'avez aucun litige actuellement </h2>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+    <h2 class="flow-text blue-text darken-2">Bienvenue, n'hesite pas à t'inscrire !</h2>
+    {% endif %}
+{% endblock %}

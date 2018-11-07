@@ -1,0 +1,26 @@
+input[type=range]::-webkit-slider-thumb {
+    background-color: #d32f2f;
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: #d32f2f;
+  }
+  input[type=range]::-ms-thumb {
+    background-color: #d32f2f;
+  }
+
+  /***** These are to edit the thumb and the text inside the thumb *****/
+  input[type=range] + .thumb {
+    background-color: #d32f2f;
+  }
+  input[type=range] + .thumb.active .value {
+    color: white;
+  }
+
+  .input-field input:focus + label {
+    color: #d32f2f !important;
+  }
+  /* label underline focus color */
+  .row .input-field input:focus {
+    border-bottom: 1px solid #d32f2f !important;
+    box-shadow: 0 0px 0 0 #d32f2f !important
+  }

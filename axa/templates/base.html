@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/static/css/materialize.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+</head>
+{% endblock %}
+
+<body>
+
+    {% if user.is_authenticated %}
+    <nav>
+        {% block nav %}
+        <div class="nav-wrapper blue darken-2">
+            <a href="#" class="brand-logo right">AXA</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="{% url 'home' %}">Mes Litiges</a></li>
+                <li><a href="{% url 'deconnexion' %}">Deconnexion</a></li>
+            </ul>
+        </div>
+        {% endblock %}
+    </nav>
+    {% else %}
+    <nav>
+        {% block nav2 %}
+        <div class="nav-wrapper blue darken-2">
+            <a href="#" class="brand-logo right">AXA</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="{% url 'connexion' %}">Connexion</a></li>
+            </ul>
+        </div>
+        {% endblock %}
+    </nav>
+    {% endif %}
+
+    
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+        
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".modal").modal();
+		$('select').material_select();
+    });      
+</script>
+</body>
