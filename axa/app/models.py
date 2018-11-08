@@ -11,7 +11,7 @@ class Litige(models.Model):
     tempsdown = models.CharField(max_length=40)
     compensation = models.CharField(max_length=40)
     cause = models.CharField(max_length=400)
-    entreprises_impactés = models.CharField(max_length=40, default="")
+    entreprises_impactées = models.CharField(max_length=40, default="")
     creation_date = models.DateTimeField(default=timezone.now, 
                                 verbose_name="Date de création")
     class Meta:
@@ -19,4 +19,16 @@ class Litige(models.Model):
         ordering = ['creation_date']
 
     def __str__(self):
-        return self.entreprises_impactés
+        return self.entreprises_impactées
+
+class Client(models.Model):
+    id_client = models.IntegerField(default=0)
+    name = models.CharField(max_length=30)
+    adresse = models.CharField(max_length=90)
+
+    class Meta:
+        verbose_name = "client"
+        ordering = ['id_client']
+
+    def __str__ (self):
+        return self.name

@@ -7,13 +7,17 @@ from datetime import datetime
 
 from .forms import ConnexionForm
 from .forms import SignUpForm
+from .forms import Declare
 
 from .models import Litige
+from .models import Client
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+import requests
+
 # Create your views here.
 
 
@@ -63,9 +67,26 @@ def signup(request):
 
 def home(request):
     user = request.user
-    litiges = Litige.objects.filter(fai=user) 
-    return render(request, 'menu/home.html', {'litiges': litiges})
+    litiges = Litige.objects.filter(fai=user)
+    return render(request, 'menu/home.html', {
+        'litiges': litiges
+        })
 
 def deconnexion(request):
     logout(request)
     return render(request, 'connection/logout.html')
+
+def declare(request):
+    clients = Client.objects.all()
+    user = request.user
+    litiges = Litige.objects.filter(fai=user)
+
+    form = Declare(request.POST)
+    if form.is_valid():
+            form.save()
+            return render(request, 'menu/home.html', {
+        'litiges': litiges
+        })
+    else:
+        form = Declare()
+    return render(request, 'menu/declare.html', {'form': form, 'clients': clients, 'date': datetime.now()})

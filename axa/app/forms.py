@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Litige
 
 
 class ConnexionForm(forms.Form):
@@ -15,3 +16,9 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+
+class Declare(forms.ModelForm):
+
+    class Meta:
+        model = Litige
+        fields = ('fai','tempsdown','cause','compensation','entreprises_impactées')
