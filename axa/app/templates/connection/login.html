@@ -14,9 +14,9 @@
 		<div class="input-field col s6 offset-s3">
             <center>
                 <img class="responsive-img img" style="width: 250px;" src="/static/pic/axa.png" />
-                <h2 class="flow-text blue-text darken-2 logo">Se connecter</h2>
+                <h2 class="flow-text indigo-text darken-4 logo">Se connecter</h2>
                 {% if error %}
-                <p class="blue-text darken-2"><strong>Utilisateur inconnu ou mauvais mot de passe.</strong></p>
+                <p class="indigo-text darken-4"><strong>Utilisateur inconnu ou mauvais mot de passe.</strong></p>
                 {% endif %}
 
 			    <div class="input-field col s6 offset-s3">
@@ -29,8 +29,8 @@
                            <input type="password" name="password" placeholder="Mot de passe" required id="id_password">
 					    </div>
 					    <div>
-                            <button class="btn waves-effect blue darken-2 btn-co" type="submit" name="action">Connexion</button>
-                            <a class="btn waves-effect blue darken-2 btn-co" href="{% url 'signup' %}">S'inscrire</a>
+                            <button class="btn waves-effect indigo darken-4 btn-co" type="submit" name="action">Connexion</button>
+                            <a class="btn waves-effect indigo darken-4 btn-co" href="{% url 'signup' %}">S'inscrire</a>
                         </div>
                     </form>
 		        </div>

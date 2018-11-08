@@ -8,6 +8,7 @@ from datetime import datetime
 from .forms import ConnexionForm
 from .forms import SignUpForm
 from .forms import Declare
+from .forms import DeclareClient
 
 from .models import Litige
 from .models import Client
@@ -90,3 +91,17 @@ def declare(request):
     else:
         form = Declare()
     return render(request, 'menu/declare.html', {'form': form, 'clients': clients, 'date': datetime.now()})
+
+def declareclient(request):
+    user = request.user
+    litiges = Litige.objects.filter(fai=user)
+
+    form = DeclareClient(request.POST)
+    if form.is_valid():
+            form.save()
+            return render(request, 'menu/home.html', {
+        'litiges': litiges
+        })
+    else:
+        form = DeclareClient()
+    return render(request, 'menu/declareclient.html', {'form': form})

@@ -2,7 +2,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h2 class="flow-text blue-text darken-2">Bienvenue {{ user.first_name }} {{ user.last_name }} </h2>
+    <h2 class="flow-text indigo-text darken-4">Bienvenue {{ user.first_name }} {{ user.last_name }} </h2>
     
     {% for litige in litiges %}
     <div class="row mt50">
@@ -39,7 +39,7 @@
     <div class="row mt50">
         <div class="card col s6 offset-s3 ">
             <div class="card-content">
-                <h2 class="flow-text blue-text darken-2">Vous n'avez aucun litige actuellement </h2>
+                <h2 class="flow-text indigo-text darken-4">Vous n'avez aucun litige actuellement </h2>
             </div>
         </div>
     </div>
@@ -47,6 +47,6 @@
     {% endfor %}
 
     {% else %}
-    <h2 class="flow-text blue-text darken-2">Bienvenue, n'hesite pas à t'inscrire !</h2>
+    <h2 class="flow-text indigo-text darken-4">Bienvenue, n'hesite pas à t'inscrire !</h2>
     {% endif %}
 {% endblock %}

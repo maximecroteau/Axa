@@ -22,7 +22,7 @@ class Litige(models.Model):
         return self.entreprises_impactées
 
 class Client(models.Model):
-    id_client = models.IntegerField(default=0)
+    id_client = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
     adresse = models.CharField(max_length=90)
 

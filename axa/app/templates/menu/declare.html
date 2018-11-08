@@ -2,11 +2,11 @@
 
 {% block content %}
 <center>
-<h2 class="flow-text blue-text darken-2">Créer votre litige :</h2>
+<h2 class="flow-text indigo-text darken-4">Créer votre litige :</h2>
 <div class="row mt50">
     <div class="col s6 offset-s3">
     <form method="POST" class="post-form">
-    <h2 class="flow-text blue-text darken-2">Declaration de litige de {{ user.username }}</h2>
+    <h2 class="flow-text indigo-text darken-4">Declaration de litige de {{ user.username }}</h2>
     {% csrf_token %}
 
         <div class="row">
@@ -47,8 +47,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-    		<button type="submit" class="btn btn-default blue darken-2">Save</button>
-            <a class="btn waves-effect blue darken-2 btn-co" href="{% url 'home' %}">Annuler</a>	
+    		<button type="submit" class="btn btn-default indigo darken-4">Save</button>
+            <a class="btn waves-effect indigo darken-4 btn-co" href="{% url 'home' %}">Annuler</a>	
         </div>
     </form>
     </div>

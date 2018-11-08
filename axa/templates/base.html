@@ -15,11 +15,12 @@
     {% if user.is_authenticated %}
     <nav>
         {% block nav %}
-        <div class="nav-wrapper blue darken-2">
+        <div class="nav-wrapper indigo darken-4">
             <a href="#" class="brand-logo right">AXA</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="{% url 'home' %}">Mes Litiges</a></li>
                 <li><a href="{% url 'declare' %}">Declarer un litige</a></li>
+                <li><a href="{% url 'declareclient' %}">Declarer un client</a></li>
                 <li><a href="{% url 'deconnexion' %}">Deconnexion</a></li>
             </ul>
         </div>
@@ -28,7 +29,7 @@
     {% else %}
     <nav>
         {% block nav2 %}
-        <div class="nav-wrapper blue darken-2">
+        <div class="nav-wrapper indigo darken-4">
             <a href="#" class="brand-logo right">AXA</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="{% url 'connexion' %}">Connexion</a></li>

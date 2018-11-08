@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+<h2 class="flow-text indigo-text darken-4">Créer un client :</h2>
+<div class="row mt50">
+    <div class="col s6 offset-s3">
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+        
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="name" maxlength="40" required id="id_name">
+                <label for="id_name">Nom du client :</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="adresse" maxlength="400" required id="id_adresse">
+                <label for="id_adresse">Adresse du client :</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+    		<button type="submit" class="btn btn-default indigo darken-4">Save</button>
+            <a class="btn waves-effect indigo darken-4 btn-co" href="{% url 'home' %}">Annuler</a>	
+        </div>
+    </form>
+    </div>
+</div>
+</center>
+
+{% endblock %}
